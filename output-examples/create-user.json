@@ -1,0 +1,37 @@
+{
+  "input": {
+    "firstname": "HUGO",
+    "lastname": "DUPONT",
+    "email": "hdupont@elior.fr",
+    "managers": {
+      "sync": [
+        { "manager_id": 7 }
+      ]
+    },
+    "commitees": {
+      "sync": [
+        {
+          "commitee_id": 152,
+          "matricule": "00123456 - 9001",
+          "role": "user"
+        }
+      ]
+    },
+    "mandates": {
+      "create": [
+        {
+          "mandateDefinition": {
+            "connect": 3
+          },
+          "commitee": {
+            "connect": 152
+          },
+          "start_at": "2020-11-01",
+          "credit": 960,
+          "label": "Représentant syndical au CSEC",
+          "name": "representant-syndical-au-csec"
+        }
+      ]
+    }
+  }
+}

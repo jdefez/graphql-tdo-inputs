@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.012971">
+    <testsuite name="Test Suite" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.012971">
+      <testsuite name="Jean\GraphqlInputs\tests\InputTest" file="/home/jean/Code/graphql-inputs/tests/Unit/InputTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.012971">
+        <testcase name="user_can_have_a_mandates_create_relation_attribute" class="Jean\GraphqlInputs\tests\InputTest" classname="Jean.GraphqlInputs.tests.InputTest" file="/home/jean/Code/graphql-inputs/tests/Unit/InputTest.php" line="56" assertions="1" time="0.012971"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,14 @@
+
+
+Code Coverage Report:  
+  2021-10-23 18:44:35  
+                       
+ Summary:              
+  Classes: 50.00% (1/2)
+  Methods: 75.00% (3/4)
+  Lines:   85.71% (6/7)
+
+Jean\GraphqlInputs\Inputs\Connect
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
+Jean\GraphqlInputs\Inputs\CreateCollectionCaster
+  Methods:  66.67% ( 2/ 3)   Lines:  83.33% (  5/  6)
