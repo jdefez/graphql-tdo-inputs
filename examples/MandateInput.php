@@ -9,13 +9,13 @@ use Spatie\DataTransferObject\DataTransferObject;
 
 class MandateInput extends DataTransferObject
 {
-    #[MapFrom('mandate_name')]
+    #[MapFrom('name')]
     public string $name;
 
-    #[MapFrom('mandate_credit')]
+    #[MapFrom('credit')]
     public int $credit;
 
-    #[MapFrom('mandate_label')]
+    #[MapFrom('label')]
     public string $label;
 
     #[MapTo('mandateDefinition')]

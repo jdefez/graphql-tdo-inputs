@@ -11,11 +11,11 @@ class InputTest extends TestCase
     /** @test */
     public function it_renders_user_input()
     {
-        $input = new UserInput([
-            'user_firstname' => 'Hank',
-            'user_lastname' => 'Green',
-            'user_email' => 'h.green@gmail.com',
-        ]);
+        $input = new UserInput(
+            firstname: 'Hank',
+            lastname: 'Green',
+            email: 'h.green@gmail.com'
+        );
 
         $expected = [
             'input' => [
@@ -23,6 +23,8 @@ class InputTest extends TestCase
                 'lastname' => 'Green',
                 'email' => 'h.green@gmail.com',
                 'mandates' => null,
+                'managers' => null,
+                'commitees' => null,
             ]
         ];
 
@@ -34,11 +36,11 @@ class InputTest extends TestCase
     {
         $this->expectException(ValidationException::class);
 
-        $input = new UserInput([
-            'user_firstname' => 'Hank',
-            'user_lastname' => 'Green',
-            'user_email' => 'h[DOT]green[AT]gmail[DOT]com',
-        ]);
+        $input = new UserInput(
+            firstname: 'Hank',
+            lastname: 'Green',
+            email: 'h[DOT]green[AT]gmail[DOT]com'
+        );
 
         $expected = [
             'input' => [
@@ -46,6 +48,8 @@ class InputTest extends TestCase
                 'lastname' => 'Green',
                 'email' => 'h.green@gmail.com',
                 'mandates' => null,
+                'managers' => null,
+                'commitees' => null,
             ]
         ];
 
@@ -55,27 +59,39 @@ class InputTest extends TestCase
     /** @test */
     public function user_can_have_a_mandates_create_relation_attribute()
     {
-        $input = new UserInput([
-            'user_firstname' => 'Hank',
-            'user_lastname' => 'Green',
-            'user_email' => 'h.green@gmail.com',
-            'createMandates' => [
+        $input = new UserInput(
+            firstname: 'Hank',
+            lastname: 'Green',
+            email: 'h.green@gmail.com',
+            createMandates: [
                 [
-                    'mandate_label' => 'elu-titulaire',
-                    'mandate_name' => 'elu titulaire',
-                    'mandate_credit' => 24,
+                    'label' => 'elu-titulaire',
+                    'name' => 'elu titulaire',
+                    'credit' => 24,
                     'connectCommitee' => ['id' => 200],
                     'connectMandateDefinition' => ['id' => 14],
                 ],
                 [
-                    'mandate_label' => 'tresorier-du-cssct',
-                    'mandate_name' => 'tresorier du cssct',
-                    'mandate_credit' => 24,
+                    'label' => 'tresorier-du-cssct',
+                    'name' => 'tresorier du cssct',
+                    'credit' => 24,
                     'connectCommitee' => ['id' => 200],
                     'connectMandateDefinition' => ['id' => 15],
                 ],
+            ],
+            syncManagers: [
+                [
+                    'id' => 7
+                ]
+            ],
+            syncCommitees: [
+                [
+                    'id' => 200,
+                    'matricule' => 'qjx75',
+                    'role' => 'user',
+                ]
             ]
-        ]);
+        );
 
         $expected = [
             'input' => [
@@ -107,7 +123,21 @@ class InputTest extends TestCase
                             ],
                         ],
                     ]
-                ]
+                ],
+                'managers' => [
+                    'sync' => [
+                        ['manager_id' => 7]
+                    ]
+                ],
+                'commitees' => [
+                    'sync' => [
+                        [
+                            'commitee_id' => 200,
+                            'matricule' => 'qjx75',
+                            'role' => 'user',
+                        ]
+                    ]
+                ],
             ]
         ];
 
